@@ -53,29 +53,56 @@
           <h2>ПЕРФОРАТОРЫ</h2>
         </div>
         <h4>ФИЛЬТР:</h4>
+        <form action="https://echo.htmlacademy.ru/courses" method="get" oninput="price-output.value=price-count.value">
         <div class="price">
-          <h3>ЦЕНА:</h3>
-          <span>0</span>
-          <span>3000</span>
+          <label for="price-count">Цена:</label>
+          <input type="range" id="price-count" name="price-count" min="0" max="3000" step="100">
+          <output name="price-output"></output>
         </div>
         <div class="manufacturer-side">
-          <h3>ПРОИЗВОДИТЕЛИ:</h3>
-          <ul>
-            <li>BOSCH</li>
-            <li>ИНТЕРСКОЛ</li>
-            <li>MAKITA</li>
-            <li>DEWALT</li>
-            <li>HITACHI</li>
-          </ul>
+          <fieldset>
+            <legend>Производители:</legend>
+            <ul>
+              <li>
+                <input type="checkbox" name="filter-bosch" id="filter-bosch" checked>
+                <label for="filter-bosch">BOSCH</label>
+              </li>
+              <li>
+                <input type="checkbox" name="filter-interskol" id="filter-interskol">
+                <label for="filter-interskol">ИНТЕРСКОЛ</label>
+              </li>
+              <li>
+                <input type="checkbox" name="filter-makita" id="filter-makita" checked>
+                <label for="filter-makita">MAKITA</label>
+              </li>
+              <li>
+                <input type="checkbox" name="filter-dewalt" id="filter-dewalt">
+                <label for="filter-dewalt">DEWALT</label>
+              </li>
+              <li>
+                <input type="checkbox" name="filter-hitachi" id="filter-hitachi">
+                <label for="filter-hitachi">HITACHI</label>
+              </li>
+            </ul>
+          </fieldset>
         </div>
         <div class="power">
-          <h3>ПИТАНИЕ:</h3>
-          <ul>
-            <li>АККУМУЛЯТОРНЫЕ</li>
-            <li>СЕТЕВЫЕ</li>
-          </ul>
-        </div>
-        <a href="#">ПОКАЗАТЬ</a>
+          <fieldset>
+            <legend>Питание:</legend>
+            <ul>
+              <li>
+                <input type="radio" name="power-group" value="battery" id="filter-battery" checked>
+                <label for="filter-battery">Аккумуляторные</label>
+              </li>
+              <li>
+                <input type="radio" name="power-group" value="network" id="filter-network">
+                <label for="filter-network">Сетевые</label>
+              </li>
+            </ul>
+          </div>
+          <input type="submit" value="ПОКАЗАТЬ">
+        </fieldset>
+      </form>
         <div class="sorting">
           <h4>СОРТИРОВКА:</h4>
           <ul>
@@ -218,5 +245,11 @@
         </div>
       </div>
     </footer>
+    <section>
+      <button type="reset"></button>
+      <h3>Товар добавлен в корзину!</h3>
+      <a href="#">Оформить заказ</a>
+      <button type="reset">Продолжить покупки</button>
+    </section>
   </body>
 </html>

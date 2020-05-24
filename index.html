@@ -8,7 +8,8 @@
     <header>
       <div class="header-top">        
         <a href="index.html">ТЕХНОМАРТ</a>
-        <input type="text" placeholder="Поиск:">
+        <label for="search" class="search">Поиск:</label>
+        <input type="search" id="search" name="search" placeholder="Поиск:">
         <a href="#">Закладки: <span>0</span></a>
         <a href="#">Корзина: <span>0</span></a>
         <a href="#">Оформить заказ</a>
@@ -53,6 +54,11 @@
               <h2>ПЕРФОРАТОРЫ</h2>
               <span>Настоящие мужские игрушки</span>
               <a href="#">ОТКРЫТЬ КАТАЛОГ</a>
+          </li>
+          <li class="main-item">
+            <h2>ДРЕЛИ</h2>
+            <span>Соседям на радость!</span>
+            <a href="#">ОТКРЫТЬ КАТАЛОГ</a>
           </li>
           <li class="main-item pink">
               <h2>Техника</h2>
@@ -139,6 +145,15 @@
           к вашему подъезду совершенно бесплатно!<br>
           Ведь мы неплохо заработаем,<br>
           поднимая его на ваш этаж!</p>
+        <h2>ГАРАНТИЯ</h2>
+        <p>Если купленный у нас товар поломается или заискрит, 
+          а также в случае пожара, спровоцированного его 
+          возгоранием, вы всегда можете быть уверены в нашей 
+          гарантии. Мы обменяем сгоревший товар на новый. 
+          Дом уж восстановите как-нибудь сами.</p>
+        <h2>КРЕДИТ</h2>
+        <p>Залезть в долговую яму стало проще!
+          Кредитные консультанты придут вам на помощь.</p>
       </section>
       <section>
         <div class="company-block">
@@ -196,9 +211,15 @@
         </div>
         <div class="footer-bot-mid">
           <ul>
-            <li><a href="#"></a>VK</li>
-            <li><a href="#"></a>FB</li>
-            <li><a href="#"></a>IG</li>
+            <li>
+              <a href="#">VK</a>
+            </li>
+            <li>
+              <a href="#">FB</a>
+            </li>
+            <li>
+              <a href="#">IG</a>
+            </li>
           </ul>
         </div>
         <div class="footer-bot-right">
@@ -213,5 +234,14 @@
         </div>
       </div>
     </footer>
+    <section>
+      <label for="field-name">Ваше имя:</label>
+      <input type="text" name="field-name" id="field-name">
+      <label for="field-email">Ваш e-mail:</label>
+      <input type="email" name="field-email" id="field-email">
+      <label for="text-post">Текст письма:</label>
+      <textarea name="text-post" id="text-post" cols="30" rows="10" placeholder="В свободной форме"></textarea>
+      <a href="#">Оформить заказ</a>
+    </section>
   </body>
 </html>
