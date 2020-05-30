@@ -1,0 +1,432 @@
+/* Шрифт не везде работает, например, популярные товары 
+    svg не работают
+    active странно работает на категориях*/
+
+@font-face {
+    font-family: 'Cuprum';
+    src: url('fonts/web/cuprum.woff2');
+    src: url('fonts/web/cuprum.woff');
+    font-weight: normal; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cuprum';
+    src: url('fonts/web/cuprumbold.woff2');
+    src: url('fonts/web/cuprumbold.woff');
+    font-weight: bold; 
+    font-style: normal;
+}@font-face {
+    font-family: 'Cuprum';
+    src: url('fonts/web/cuprumbolditalic.woff2');
+    src: url('fonts/web/cuprumbolditalic.woff');
+    font-weight: bold; 
+    font-style: italic;
+}@font-face {
+    font-family: 'Cuprum';
+    src: url('fonts/web/cuprumitalic.woff2');
+    src: url('fonts/web/cuprumitalic.woff');
+    font-weight: normal; 
+    font-style: italic;
+}@font-face {
+    font-family: 'PTSans';
+    src: url('fonts/web/ptsans.woff2');
+    src: url('fonts/web/ptsans.woff');
+    font-weight: normal; 
+    font-style: normal;
+}@font-face {
+    font-family: 'PTSans';
+    src: url('fonts/web/ptsansbold.woff2');
+    src: url('fonts/web/ptsansbold.woff');
+    font-weight: bold; 
+    font-style: normal;
+}
+
+:root {
+    --basic-red: #EE3643;
+    --basic-green: #63A63E;
+    --basic-grey: #3D546F;
+    --basic-greylight: #C5C5C5;
+    --basic-background: #F1F5F7;
+}
+
+body {
+    min-width: 960px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cuprum', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header-nav {
+    background-color: #32425C;
+}
+
+.header-nav-list {
+    list-style: none;
+}
+
+.header-nav-list a {
+    color: white;
+}
+
+.header-nav-item:focus,
+.header-nav-item:hover {
+    background-color: #293449;
+}
+
+.header-nav-item:active {
+    background: #1D2739;
+    box-shadow: inset 0px 0px #293449;
+}
+
+.header-logo img {
+    background-color: var(--basic-red);
+}
+
+.header-logo img:active {
+    background-color: #BA2732;
+}
+
+.header-top {
+    background-color: #293449;
+}
+
+.header-top a {
+    color: white;
+}
+
+.header-marks:active,
+.header-basket:active {
+    background-color: #161D29;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.header-order {
+    background-color: var(--basic-green);
+}
+
+.header-order:hover,
+.header-order:focus {
+    background-color: #5FBB2D;
+}
+
+.header-order:active {
+    background-color: var(--basic-green);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.header-desc {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 23px;
+    color: var(--basic-red);
+}
+
+.header-contacts-number {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 30px;
+    color: var(--basic-red);
+}
+
+.header-contacts-address {
+    font-size: 14px;
+    line-height: 24px;
+    color: #32425C;
+}
+
+.header-login-list {
+    list-style: none;
+}
+
+.header-login-item {
+    background-color: white;;
+}
+
+.header-mid {
+    background-color: #F3F7F9;
+}
+
+.category-list {
+    list-style: none;
+    color:white;
+}
+
+.category-list .materials {
+    background-color: #FFBF47;
+}
+
+.category-list .tool {
+    background-color: #3BBCE3;
+}
+
+.category-list .equipment {
+    background-color: #DC91D8;
+}
+
+.category-list .sale-50 {
+    background-color: #8ED78F;
+}
+
+.category-list .delivery {
+    background-color: #FFC047;
+}
+
+.category-item-link {
+    background-color: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.3;
+}
+
+.category-item-link:hover,
+.category-item-link:focus {
+    color: white;
+    background-color: #C5C5C5;
+    mix-blend-mode: normal;
+    opacity: 0.3;
+}
+
+.category-item-link:active {
+    color: white;
+    background-color: #A9A9A9;
+    mix-blend-mode: normal;
+    opacity: 0.3;
+}
+
+.section-title-wrap {
+    background-color: #F9F5F0;
+}
+
+.section-title { 
+    color: #32425C;
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.section-title-link {
+    color: white;
+    background-color: var(--basic-red);
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.catalog-item {
+    font-family: 'PTSans', serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.catalog-item-title {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.catalog-item-old-price {
+    color: #A9A9A9;
+    font-size: 17px;
+    line-height: 18px;
+    text-decoration-line: line-through;
+}
+
+.catalog-item-price {
+    color: white;
+    background-color: var(--basic-red);
+    background-image: url("img/svg/red-button.svg");
+    background-repeat: no-repeat;
+    font-size: 17px;
+    line-height: 18px;
+}
+
+.catalog-btn-buy {
+    font-size: 14px;
+    line-height: 18px;
+    color: white;
+    text-transform: uppercase;
+    background-color: var(--basic-green);
+}
+
+.catalog-btn-buy:hover,
+.catalog-btn-buy:focus {
+    background-color: #5FBB2D;
+}
+
+.catalog-btn-buy:active {
+    background-color: #518534;
+}
+
+.catalog-btn-marks {
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #32425C;
+    text-transform: uppercase;
+    border: 3px solid #63A63E;
+}
+
+.catalog-btn-marks:hover,
+.catalog-btn-marks:focus {
+    border: 3px solid #32425C;
+}
+
+.catalog-btn-marks:active {
+    border: 3px solid #32425C;
+}
+
+.manufacturer-list {
+    list-style: none;
+}
+
+.manufacturer-item:hover,
+.manufacturer-item:focus {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.manufacturer-item:active {
+    opacity: 0.5;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.company-title {
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.company-text {
+    font-family: 'PTSans', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.company-list {
+    list-style: none;
+}
+
+.company-btn {
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    background-color: var(--basic-red);
+}
+
+.company-btn:active {
+    background-color: #BA2732;
+}
+
+.footer-top {
+    background-color: #32425C;
+}
+
+.footer-logo img {
+    background-color: var(--basic-red);
+}
+
+.footer-address {
+    color: #F3F7F9;
+}
+
+.footer-nav-list {
+    list-style: none;
+}
+
+.footer-nav-item a {
+    color: #F1F5F7;
+}
+
+.footer-links-list {
+    list-style: none;
+}
+
+.footer-links-item a {
+    color: #FFD180;
+}
+
+.footer-bot {
+    background-color: #293449;
+}
+
+.footer-copyright-text {
+    font-size: 16px;
+    line-height: 18px;
+    color: white;
+}
+
+.footer-social-list {
+    list-style: none;
+}
+
+.footer-social-item {
+    background-color: #212A3A;
+}
+
+.footer-social-list .vk {
+    background-image: url("img/svg/icon-vk.svg");
+}
+
+.footer-social-list .facebook {
+    background-image: url("img/svg/icon-fb.svg");
+}
+
+.footer-social-list .instagram {
+    background-image: url("img/svg/icon-insta.svg");
+}
+
+.footer-recall-text {
+    color: white;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.footer-recall-text a {
+    color: #FFD180;
+}
+
+/* catalog */
+
+.catalog-title-wrap {
+    background-color: #F2F6F8;
+}
+
+.catalog-title {
+    color: #32425C;
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;    
+}
+
+.about-tool {
+    background-color: var(--basic-background);
+}
+
+.about-tool-title {
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.about-tool-text {
+    font-family: 'PTSans', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+}
+
