@@ -1,64 +1,50 @@
-/*  svg не работают
-    active странно работает на категориях
-    крошки плохо спозиционированы
-    кнопки в компани не ровно стоят
-    .manufacturer-item при width=220px (по макету) съезжают
-    .footer-copyright не хватает 227px, текст переносится, хочет 229px
-    закладки больше купить, видимо border увеличивает
+/*  слайдер крашится
 */
-
-
-.category-list .stub {
-  width: 620px;
-  height: 266px;
-  grid-row: 2 / 4;
-  grid-column: 1 / 3;
-}
 
 @font-face {
   font-family: "Cuprum";
-  src: url("fonts/web/cuprum.woff2") format("woff2"),
-    url("fonts/web/cuprum.woff") format("woff");
+  src: url("../fonts/web/cuprum.woff2") format("woff2"),
+    url("../fonts/web/cuprum.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Cuprum';
-  src: url('fonts/web/cuprumbold.woff2') format("woff2"),
-    url('fonts/web/cuprumbold.woff') format("woff");
+  src: url('../fonts/web/cuprumbold.woff2') format("woff2"),
+    url('../fonts/web/cuprumbold.woff') format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Cuprum';
-  src: url('fonts/web/cuprumbolditalic.woff2') format("woff2"),
-    url('fonts/web/cuprumbolditalic.woff') format("woff");
+  src: url('../fonts/web/cuprumbolditalic.woff2') format("woff2"),
+    url('../fonts/web/cuprumbolditalic.woff') format("woff");
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Cuprum';
-  src: url('fonts/web/cuprumitalic.woff2') format("woff2"),
-    url('fonts/web/cuprumitalic.woff') format("woff");
+  src: url('../fonts/web/cuprumitalic.woff2') format("woff2"),
+    url('../fonts/web/cuprumitalic.woff') format("woff");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'PTSans';
-  src: url('fonts/web/ptsans.woff2') format("woff2"),
-    url('fonts/web/ptsans.woff') format("woff");
+  src: url('../fonts/web/ptsans.woff2') format("woff2"),
+    url('../fonts/web/ptsans.woff') format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PTSans';
-  src: url('fonts/web/ptsansbold.woff2') format("woff2"),
-    url('fonts/web/ptsansbold.woff') format("woff");
+  src: url('../fonts/web/ptsansbold.woff2') format("woff2"),
+    url('../fonts/web/ptsansbold.woff') format("woff");
   font-weight: bold;
   font-style: normal;
 }
@@ -73,6 +59,15 @@
 
 html {
   height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+-webkit-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -80,15 +75,12 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Cuprum", serif;
+  font-family: "Cuprum", "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   color: black;
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  align-content: start;
 }
 
 a {
@@ -98,21 +90,6 @@ a {
 img {
   max-width: 100%;
   height: auto;
-}
-
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
 
 .container {
@@ -125,10 +102,14 @@ input[type="radio"].visually-hidden {
   flex-direction: column;
 }
 
-.header-top {
+.header-top-wrap {
   background-color: #293449;
-  min-height: 47px;
+}
+
+.header-top {
+  height: 42px;
   display: flex;
+  justify-content: space-between;
 }
 
 .header-logo {
@@ -150,12 +131,25 @@ input[type="radio"].visually-hidden {
   background-color: #BA2732;
 }
 
+.header-search {
+  width: 270px;
+}
+
 .header-btn {
   display: block;
   width: 150px;
-  height: 42px;
   color: white;
   position: relative;
+  text-align: center;
+  padding-top: 9px;
+}
+
+.header-marks {
+  padding-left: 43px;
+}
+
+.header-basket {
+  padding-left: 49px;
 }
 
 .header-marks:active,
@@ -172,6 +166,8 @@ input[type="radio"].visually-hidden {
   background-image: url("img/svg/icon-bookmark.svg");
   mix-blend-mode: normal;
   opacity: 0.3;
+  display: block;
+  left: 20px;
 }
 
 .header-basket::before {
@@ -198,11 +194,14 @@ input[type="radio"].visually-hidden {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.header-mid {
+.header-mid-wrap {
   background-color: #F3F7F9;
+}
+
+.header-mid {
   display: flex;
   flex-wrap: wrap;
-  min-height: 273px;
+  min-height: 278px;
 }
 
 .header-desc {
@@ -214,32 +213,55 @@ input[type="radio"].visually-hidden {
   width: 197px;
   margin-right: 93px;
   margin-left: 30px;
+  margin-top: 45px;
+  margin-bottom: 0;
 }
 
 .header-contacts {
   width: 270px;
   margin-right: 69px;
+  margin-top: 46px;
 }
 
 .header-contacts-number {
+  display: block;
   font-weight: bold;
   font-size: 21px;
   line-height: 30px;
   color: var(--basic-red);
   border: 3px solid #FFFFFF;
   width: 270px;
-  min-height: 45px;
+  height: 45px;
+  padding-top: 4px;
+  padding-left: 71px;
+  position: relative;
+}
+
+.header-contacts-number::before {
+  position: absolute;
+  content: "";
+  width: 19px;
+  height: 19px;
+  background-image: url("../img/svg/icon-phone.svg");
+  left: 35px;
+  top: 10px;
 }
 
 .header-contacts-address {
+  display: inline-block;
   font-size: 14px;
   line-height: 24px;
   color: #32425C;
+  margin: 0;
+  margin-top: 3px;
+  margin-left: 10px;
+  height: 24px;
 }
 
 .header-login-list {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
 }
 
@@ -249,17 +271,22 @@ input[type="radio"].visually-hidden {
   color: black;
   background-color: white;
   font-size: 21px;
-  line-height: 21px;  
+  line-height: 21px;
+  margin-top: 46px;
 }
 
 .header-login-list .registration {
   min-width: 150px;
+  padding-top: 12px;
+  padding-left: 24px;
 }
 
 .header-login-list .enter {
   min-width: 121px;
   margin-right: 10px;
   position: relative;
+  padding-top: 12px;
+  padding-left: 45px;
 }
 
 .header-login-list .enter::before {
@@ -268,6 +295,8 @@ input[type="radio"].visually-hidden {
   width: 20px;
   height: 17px;
   background-image: url("img/svg/icon-login.svg");
+  top: 13px;
+  left: 19px;
 }
 
 .header-nav-list {
@@ -278,18 +307,19 @@ input[type="radio"].visually-hidden {
   width: 940px;
   display: flex;
   justify-content: space-around;
-  /* не работает -> */
-  align-items: center;
+  box-shadow: inset 0px -5px 0px #293449;
+  margin-bottom: 21px;
 }
 
 .header-nav-list a {
   display: block;
+  min-height: 60px;
   color: white;
   text-align: center;
+  padding-top: 16px;
 }
 
 .header-nav-item {
-  min-height: 60px;
   flex-grow: 1;
 }
 
@@ -303,6 +333,10 @@ input[type="radio"].visually-hidden {
   box-shadow: inset 0px 0px #293449;
 }
 
+.category {
+  margin-top: 59px;
+  margin-bottom: 59px;
+}
 
 .category-list {
   list-style: none;
@@ -356,21 +390,90 @@ input[type="radio"].visually-hidden {
   background-position: 191px 32px;
 }
 
+.category-list .slider {
+  grid-row: 2 / 4;
+  grid-column: 1 / 3;
+  position: relative;
+}
+
+.slider input[type="radio"] {
+  display: none;
+}
+
+.slider-controls {
+  width: 620px;
+}
+
+.slider-btn-left {
+  width: 22px;
+  height: 40px;
+  background-image: url(../img/svg/icon-left.svg);
+  left: 24px;
+}
+
+.slider-btn-right {
+  width: 22px;
+  height: 40px;
+  background-image: url(../img/svg/icon-right.svg);
+  left: 578px;
+}
+
+.slider-controls label {
+  display: block;
+  width: 22px;
+  height: 40px;
+  position: absolute;
+  top: 122px;
+  border: 1px solid red;
+}
+
+.slider-inner {
+  width: 620px;
+  height: 266px;
+  overflow: hidden;
+}
+
+.slider-slides {
+  width: 200%;
+  transition: transform 0.8s ease;
+}
+
+.slider-slides img {
+  float: left;
+}
+
+#btn-left:checked ~ .slider-inner .slider-slides {
+  transform: translate(0);
+}
+
+#btn-right:checked ~ .slider-inner .slider-slides {
+  transform: translate(-620px);
+}
+
 .category-item-title {
-    margin-left: 23px;
+  margin-left: 23px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 0;
 }
 
 .category-item-link {
   display: block;
   background-color: #FFFFFF;
-  mix-blend-mode: normal;
+  font-size: 14px;
+  line-height: 18px;
   opacity: 0.3;
   text-align: center;
   text-transform: uppercase;
   width: 135px;
   min-height: 38px;
   margin-left: 23px;
-  margin-bottom: 21px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-item-link:hover,
@@ -393,7 +496,7 @@ input[type="radio"].visually-hidden {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  min-height: 89px;
 }
 
 .manufacturer-title-wrap {
@@ -418,6 +521,8 @@ input[type="radio"].visually-hidden {
   font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
+  padding-top: 11px;
+  text-align: center;
 }
 
 .popular-list {
@@ -427,7 +532,7 @@ input[type="radio"].visually-hidden {
 }
 
 .catalog-item {
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-style: normal;
   font-weight: bold;
   width: 220px;
@@ -451,6 +556,9 @@ input[type="radio"].visually-hidden {
 }
 
 .catalog-item-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 178px;
   width: 220px;
 }
@@ -469,6 +577,7 @@ input[type="radio"].visually-hidden {
   font-size: 17px;
   line-height: 18px;
   text-decoration-line: line-through;
+  height: 18px;
 }
 
 .catalog-item-price {
@@ -481,6 +590,8 @@ input[type="radio"].visually-hidden {
   width: 141px;
   height: 38px;
   margin-top: 13px;
+  padding-top: 10px;
+  padding-left: 32px;
 }
 
 .catalog-btn-wrap {
@@ -551,6 +662,9 @@ input[type="radio"].visually-hidden {
   border: 1px solid #EAEAEA;
   margin-right: 20px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .manufacturer-list li:nth-of-type(4n) {
@@ -567,8 +681,12 @@ input[type="radio"].visually-hidden {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+.services-wrap {
+  background-color: #F1F5F7;
+}
+
 .services {
-  background-color: #F1F5F7;;
+  height: 522px;
 }
 
 .company {
@@ -587,7 +705,7 @@ input[type="radio"].visually-hidden {
 }
 
 .company-text {
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -635,6 +753,8 @@ input[type="radio"].visually-hidden {
   font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
+  padding-top: 11px;
+  text-align: center;
 }
 
 .write-btn {
@@ -647,6 +767,7 @@ input[type="radio"].visually-hidden {
 
 .contacts-text {
   width: 180px;
+  min-height: 49px;
 }
 
 .map-img {
@@ -654,8 +775,11 @@ input[type="radio"].visually-hidden {
   margin-bottom: 25px;
 }
 
-.footer-top {
+.footer-top-wrap {
   background-color: #32425C;
+}
+
+.footer-top {
   display: flex;
   flex-wrap: wrap;
   height: 193px;
@@ -713,8 +837,11 @@ input[type="radio"].visually-hidden {
   color: #FFD180;
 }
 
-.footer-bot {
+.footer-bot-wrap {
   background-color: #293449;
+}
+
+.footer-bot {
   border: 1px solid transparent;
   display: flex;
   align-items: center;
@@ -836,7 +963,7 @@ input[type="radio"].visually-hidden {
 
 .breadcrumbs-item a {
   color: black;
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -878,7 +1005,7 @@ input[type="radio"].visually-hidden {
 }
 
 .catalog legend {
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
@@ -898,7 +1025,7 @@ input[type="radio"].visually-hidden {
   display: block;
   cursor: pointer;
   user-select: none;
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -1034,13 +1161,11 @@ input[type="radio"].visually-hidden {
   background-color: var(--basic-red);
 }
 
-
-
-
-
+.about-tool-wrap {
+  background-color: var(--basic-background);
+}
 
 .about-tool {
-  background-color: var(--basic-background);
   min-height: 261px;
   border: 1px solid transparent;
 }
@@ -1054,7 +1179,7 @@ input[type="radio"].visually-hidden {
 }
 
 .about-tool-text {
-  font-family: 'PTSans', serif;
+  font-family: 'PTSans', "Arial", sans-serif;
   font-size: 13px;
   line-height: 24px;
   margin: 0;
